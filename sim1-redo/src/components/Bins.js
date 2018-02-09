@@ -16,10 +16,10 @@ export default class Bins extends Component{
         }
     }
 
-    componentDidMount(){
-        let promise = axios.get('/api/music')
-        promise.then(response => {
-            this.setState({
+/*44E */ componentDidMount(){
+    /*44C*/ let promise = axios.get('/api/music')
+    /*44D */ promise.then(response => {
+    /*36D */  this.setState({  
                 bin1: response.data.bin1,
                 bin2: response.data.bin2,
                 bin3: response.data.bin3,
@@ -35,8 +35,8 @@ export default class Bins extends Component{
 
     render(){
         return(
-            <div>
-                <Link to = '/bin/a1' ><div>+ Add inventory to bin</div></Link>
+            <div>{!this.state.bin1 ? <Link to = '/create/a1' ><div>+ Add inventory to bin</div></Link>
+                    : <Link to = '/bin/a1'><div>Bin 1</div></Link>}
                 <Link to = '/bin/a2' ><div>+ Add inventory to bin</div></Link>
                 <Link to = '/bin/a3' ><div>+ Add inventory to bin</div></Link>
                 <Link to = '/bin/a4' ><div>+ Add inventory to bin</div></Link>
